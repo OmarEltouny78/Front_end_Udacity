@@ -35,15 +35,7 @@ function sectionswtich(id,min,max){
   const element= document.getElementById(id);
     if (document.body.scrollTop > min && document.body.scrollTop < max || document.documentElement.scrollTop > min &&document.documentElement.scrollTop < max) {
         element.className = "your-active-class";
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
-    });
-});
+        
         
       } else {
         document.getElementById(id).className = "";
@@ -98,6 +90,19 @@ function myFunction() {
     sectionswtich("section3",150,200);
     sectionswtich("section4",200,250);
 
+  }
+  window.onclick=function(){myFunction()};
+  function scrollingFunction(){
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
   }
 
 
