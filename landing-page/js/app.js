@@ -31,14 +31,17 @@
  * Begin Main Functions
  * 
 */
-function sectionswtich(id,min,max){
+function sectionswtich(id,min,max,a){
   const element= document.getElementById(id);
+  const active=document.getElementById(a);
     if (document.body.scrollTop > min && document.body.scrollTop < max || document.documentElement.scrollTop > min &&document.documentElement.scrollTop < max) {
         element.className = "your-active-class";
-        
+        active.className="active";
         
       } else {
-        document.getElementById(id).className = "";
+        element.className = "";
+        active.className="";
+
       }
 
 }
@@ -60,26 +63,7 @@ function sectionswtich(id,min,max){
 
 // Build menu 
 
-// Scroll to section on link click
 
-$(document).ready(function(){
-    $("a").on('click', function(event) {
-      if (this.hash !== "") {
-        // Prevent default anchor click behavior
-        event.preventDefault();
-  
-        // Store hash
-        var hash = this.hash;
-
-        $('html, body').animate({
-          scrollTop: $(hash).offset().top
-        }, 800, function(){
-     
-          window.location.hash = hash;
-        });
-      } // End if
-    });
-  });
 
 // Set sections as active
 
@@ -91,6 +75,7 @@ function myFunction() {
     sectionswtich("section4",200,250);
 
   }
+  // Scroll to section on link click
   window.onclick=function(){myFunction()};
   function scrollingFunction(){
 
